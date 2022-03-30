@@ -5,10 +5,24 @@
  */
 package com.nttn.utils;
 
+import java.sql.Connection;
+import java.sql.DriverManager;
+import java.sql.SQLException;
+
 /**
  *
  * @author Admin
  */
 public class JdbcUtils {
-    Class.forName("com.mysql.cj.jdbc.Driver");
+    static {
+        try {
+            Class.forName("com.mysql.cj.jdbc.Driver");
+        } catch (ClassNotFoundException ex) {
+            ex.printStackTrace();
+        }
+    }
+    
+    public static Connection getConn() throws SQLException {
+        return DriverManager.getConnection("jdbc:mysql://localhost/englishdb", "root", "12345678");
+    }
 }

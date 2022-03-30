@@ -8,4 +8,5 @@ module com.nttn.englishapp {
 
     opens com.nttn.englishapp to javafx.fxml;
     exports com.nttn.englishapp;
+    exports com.nttn.pojo;
 }
